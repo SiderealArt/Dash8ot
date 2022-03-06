@@ -4,7 +4,7 @@ const { Client, Collection, Intents } = require('discord.js');
 const Config = require('./config.json');
 var Twit = require('twit');
 const GuildSettings = require("./models/settings");
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS] });
 var T = new Twit({
 	consumer_key: Config.consumer_key,
 	consumer_secret: Config.consumer_secret,
