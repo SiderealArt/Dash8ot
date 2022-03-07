@@ -51,7 +51,7 @@ module.exports = client => {
         extended: true
     }));
     //Loading css files
-    app.use(express.static(path.join(__dirname, "./public")));
+    app.use(express.static(path.join(__dirname, "./assets")));
 
     const checkAuth = (req, res, next) => {
         if (req.isAuthenticated()) return next();

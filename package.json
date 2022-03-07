@@ -27,5 +27,8 @@
     "pixiv-api-client": "^0.25.0",
     "qrcode": "^1.5.0",
     "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
   }
 }
