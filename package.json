@@ -19,6 +19,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
+    "i18n": "^0.14.2",
     "image-downloader": "^4.1.0",
     "memorystore": "^1.6.7",
     "mongoose": "^6.2.4",

@@ -5,6 +5,6 @@ module.exports = {
 		.setName('car')
 		.setDescription('replies with a random nhentai link'),
 	async execute(interaction) {
-		await interaction.reply("https://nhentai.net/g/" + Math.floor((Math.random() * 320000) + 1));
+		await interaction.reply(interaction.guild.memberCount+"a");
 	},
 };

@@ -37,13 +37,13 @@ client.once('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
-	var storedSettings = await GuildSettings.findOne({ gid: message.guild.id });
+	var storedSettings = await GuildSettings.findOne({ gid: interaction.guild.id });
 	if (!storedSettings) {
 			const newSettings = new GuildSettings({
-			gid: message.guild.id
+			gid: interaction.guild.id
 		});
 		await newSettings.save().catch(() => { });
-		storedSettings = await GuildSettings.findOne({ gid: message.guild.id });
+		storedSettings = await GuildSettings.findOne({ gid: interaction.guild.id });
 	}
 
 	if (!interaction.isCommand()) return;

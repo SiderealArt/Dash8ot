@@ -50,7 +50,6 @@ module.exports = client => {
     app.use(express.urlencoded({
         extended: true
     }));
-    //Loading css files
     app.use(express.static(path.join(__dirname, "./assets")));
 
     const checkAuth = (req, res, next) => {
@@ -74,7 +73,7 @@ module.exports = client => {
     );
 
     app.get("/callback", passport.authenticate("discord", { failureRedirect: "/" }), async (req, res) => {
-        let banned = false //client.settings.get("bannedusers")
+        let banned = false
         if (banned) {
             req.session.destroy()
             res.json({ login: false, message: "You are banned from the dashboard", logout: true })
@@ -103,10 +102,6 @@ module.exports = client => {
     })
 
     app.get("/dashboard", (req, res) => {
-        if (!req.isAuthenticated() || !req.user)
-            return res.redirect("/?error=" + encodeURIComponent("Login first please!"))
-        if (!req.user.guilds)
-            return res.redirect("/?error=" + encodeURIComponent("Cannot get your Guilds"))
         res.render("dashboard", {
             req: req,
             user: req.isAuthenticated() ? req.user : null,
@@ -123,7 +118,7 @@ module.exports = client => {
         const member = guild.members.cache.get(req.user.id);
         if (!member) return res.redirect("/dashboard");
         if (!member.permissions.has(Discord.Permissions.FLAGS.MANAGE_GUILD))
-            return res.redirect("/?error=" + encodeURIComponent("You are not allowed to do that"))
+            return res.redirect("/dashboard");
         var storedSettings = await GuildSettings.findOne({
             gid: guild.id
         });
@@ -144,6 +139,7 @@ module.exports = client => {
             bot: client,
             Permissions: Discord.Permissions,
             botconfig: Settings.domain,
+            settings: storedSettings,
             callback: Settings.domain + "/callback",
         })
     })

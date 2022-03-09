@@ -13,23 +13,22 @@
                         return (bot.guilds.cache.get(a.id) == bot.guilds.cache.get(b.id)) ? 0 : a ? -1 : 1;
                     }).forEach(guild => {
                     %>
-        <div class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg">` : `<img src="https://cdn.discordapp.com/attachments/765919453766352916/877787616974622770/wCfHtuoejLIbAAAAABJRU5ErkJggg.png" class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg">` %>
+        <div
+            class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="object-cover w-full h-96 rounded-t-lg md:h-48 md:w-48 md:rounded-none md:rounded-l-lg">` : `<img src="https://cdn.discordapp.com/attachments/765919453766352916/877787616974622770/wCfHtuoejLIbAAAAABJRU5ErkJggg.png" class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg">` %>
             <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= guild.name %></h5>
                 <% if(bot.guilds.cache.get(guild.id)){ %>
-
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Edit
-                    <b><%= guild.name %></b>'s Settings via the Dashboard by clicking the Button below!</p>
-                <a class="self-start py-2 px-3 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" href=" <%- botconfig.domain %>/dashboard/<%- guild.id %>" class="">Edit Settings</a>
-
+                <p class="mb-3 fon0t-normal text-gray-700 dark:text-gray-400">Edit
+                    <b><%= guild.channels+"a"+guild.id %></b>'s Settings via the Dashboard by clicking the Button below!</p>
+                <a class="self-start py-2 px-3 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    href=" <%- botconfig.domain %>/dashboard/<%- guild.id %>" class="">Edit Settings</a>
                 <% }else {  %>
-
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Invite me to
                     <b><%= guild.name %></b>to be able to manage me!</p>
-                <a class="self-start py-2 px-3 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" href="<%= `https://discordapp.com/oauth2/authorize?client_id=${bot.user.id}&scope=bot%20applications.commands&guild_id=${guild.id}&response_type=code&redirect_uri=${encodeURIComponent(`${callback}`)}`  %>"
+                <a class="self-start py-2 px-3 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    href="<%= `https://discordapp.com/oauth2/authorize?client_id=${bot.user.id}&scope=bot%20applications.commands&guild_id=${guild.id}&response_type=code&redirect_uri=${encodeURIComponent(`${callback}`)}`  %>"
                     class="">Invite me!</a>
-
                 <% } %>
             </div>
         </div>
@@ -38,13 +37,12 @@
     <% }else {  %>
     <p>Please login First!</p>
     <%  } %>
-    
+
 </section>
 <section>
     <div>
         <h4>
-            <img src="<%= bot.user.displayAvatarURL({size: 4096}) %>"> <span
-                ><%= bot.user.username %></span>
+            <img src="<%= bot.user.displayAvatarURL({size: 4096}) %>"> <span><%= bot.user.username %></span>
         </h4>
     </div>
 </section>
