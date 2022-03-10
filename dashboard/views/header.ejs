@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="icon" type="image/png" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
     <title><%= bot.user.username %></title>
     <link rel="stylesheet" href="/output.css">
+    <script src="/script.js"></script>
+    <style>
+        *{
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 
-<body>
+<body class="dark:bg-gray-800">
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <a class="navbar-brand" href="/" style="text-decoration: none;color:white">
-                <img src="<%= bot.user.displayAvatarURL({size: 4096}) %>" alt="Logo" class="mr-3 h-6 sm:h-10 rounded-full">
+                <img src="<%= bot.user.displayAvatarURL({size: 4096}) %>" alt="Logo"
+                    class="mr-3 h-6 sm:h-10 rounded-full">
             </a>
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
                 <li class="nav-item">
@@ -27,12 +35,13 @@
                     <a href="/dashboard"><b>Dashboard</b></a>
                 </li>
             </ul>
-            <ul class="ght">
-                <li class="nav-item">
+            <ul>
+                <li>
                     <% if(user && user.id) { %>
                     <button onclick="location.href='/logout'" type="button">
-                        <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png" alt="LOGO" class="mr-3 h-6 sm:h-10 rounded-full">
-                        LOGOUT!
+                        <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png" alt="LOGO"
+                            class="mr-3 h-6 sm:h-10 rounded-full">
+                        Logout
                     </button>
                     <% }else { %>
                     <button onclick="location.href='/login'" type="button">
@@ -40,5 +49,6 @@
                     <% }%>
                 </li>
             </ul>
-            </div>
+            <button onclick="darkModeToggle()">Dark</button>
+        </div>
     </nav>

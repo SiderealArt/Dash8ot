@@ -3,6 +3,7 @@ const url = require("url");
 const path = require("path");
 const Discord = require("discord.js");
 const ejs = require("ejs");
+const compression = require("compression");
 const passort = require("passport");
 const bodyParser = require("body-parser");
 const Strategy = require("passport-discord").Strategy;
@@ -41,6 +42,7 @@ module.exports = client => {
     app.set("view engine", "ejs");
     app.set("views", path.join(__dirname, "./views"));
 
+    app.use(compression());
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
@@ -162,11 +164,10 @@ module.exports = client => {
               gid: guild.id
             });
           }
-        if (req.body.prefix) client.settings.set(guild.id, req.body.prefix, "prefix");
-        if (req.body.hellomsg) client.settings.set(guild.id, req.body.hellomsg, "hellomsg");
-        if (req.body.roles) client.settings.set(guild.id, req.body.roles, "roles");
+        if (req.body.lang) client.settings.set(guild.id, req.body.lang, "lang");
+        if (req.body.nickname) client.settings.set(guild.id, req.body.nickname, "nickname");
         await storedSettings.save().catch(() => {});
-        guild.me.setNickname(req.body.username);
+        guild.me.setNickname(req.body.nickname);
         res.render("settings", {
             req: req,
             user: req.isAuthenticated() ? req.user : null,

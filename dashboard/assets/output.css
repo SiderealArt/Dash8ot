@@ -737,6 +737,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 1.25rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -823,6 +828,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .transition-all {
@@ -939,66 +952,64 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
-@media (prefers-color-scheme: dark) {
-  .dark\:border-gray-700 {
-    --tw-border-opacity: 1;
-    border-color: rgb(55 65 81 / var(--tw-border-opacity));
-  }
+.dark .dark\:border-gray-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+}
 
-  .dark\:border-gray-600 {
-    --tw-border-opacity: 1;
-    border-color: rgb(75 85 99 / var(--tw-border-opacity));
-  }
+.dark .dark\:border-gray-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
 
-  .dark\:bg-gray-800 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-  }
+.dark .dark\:bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
 
-  .dark\:bg-blue-600 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-  }
+.dark .dark\:bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
 
-  .dark\:text-white {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
+.dark .dark\:text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 
-  .dark\:text-gray-400 {
-    --tw-text-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-text-opacity));
-  }
+.dark .dark\:text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
 
-  .dark\:hover\:bg-gray-700:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-  }
+.dark .dark\:hover\:bg-gray-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
 
-  .dark\:hover\:bg-blue-700:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-  }
+.dark .dark\:hover\:bg-blue-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
 
-  .dark\:focus\:border-blue-500:focus {
-    --tw-border-opacity: 1;
-    border-color: rgb(59 130 246 / var(--tw-border-opacity));
-  }
+.dark .dark\:focus\:border-blue-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
+}
 
-  .dark\:focus\:ring-blue-800:focus {
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(30 64 175 / var(--tw-ring-opacity));
-  }
+.dark .dark\:focus\:ring-blue-800:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(30 64 175 / var(--tw-ring-opacity));
+}
 
-  .dark\:focus\:ring-gray-800:focus {
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(31 41 55 / var(--tw-ring-opacity));
-  }
+.dark .dark\:focus\:ring-gray-800:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(31 41 55 / var(--tw-ring-opacity));
+}
 
-  .peer:focus ~ .peer-focus\:dark\:text-blue-500 {
-    --tw-text-opacity: 1;
-    color: rgb(59 130 246 / var(--tw-text-opacity));
-  }
+.peer:focus ~ .dark .peer-focus\:dark\:text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {
